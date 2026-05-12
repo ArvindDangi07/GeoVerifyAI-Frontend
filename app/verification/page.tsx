@@ -80,9 +80,9 @@ export default function VerificationPage() {
   useEffect(() => {
     // Get query parameters
     const searchParams = new URLSearchParams(window.location.search)
-    const projectId = searchParams.get('projectId')
-    const score = searchParams.get('score')
-    setProjectData({ projectId, score })
+    const projectId: string | undefined = searchParams.get('projectId') ?? undefined
+    const score: string | undefined = searchParams.get('score') ?? undefined
+    setProjectData({ projectId: projectId, score: score })
 
     const processSteps = async () => {
       for (let i = 0; i < verificationSteps.length; i++) {
